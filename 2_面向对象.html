@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="J_text">jxz eighteen cm penis</h1>
+  <button class="J_btn">click to change</button>
+
+  <script>
+
+    function Test() {
+      this.oText = document.getElementsByClassName('J_text')[0];
+      this.oBtn = document.getElementsByClassName('J_btn')[0];
+      this.content = 'jxz twenty cm cock'
+    }
+    Test.prototype = {
+      init: function() {
+        this.bindEvent();
+      },
+      bindEvent: function() {
+        this.oBtn.addEventListener('click', this.changeContent.bind(this), false)
+      },
+      changeContent: function() {
+        var content = this.content
+        console.log(this)
+        this.oText.innerHTML = content;
+      }
+    }
+    new Test().init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  JavaScript 中的一等公民
+  函数声明  函数调用
+  函数作为另外的函数的参数  函数赋值变量  函数作为返回值 构造函数
+  
+
+  <script>
+    function test() {
+
+    }
+
+    test();
+
+    var test= function() {
+
+    }
+    test()
+
+    // 作为参数 作为返回值
+    function add (a, b) {
+      return a + b;
+    }
+    function minus (a, b) {
+      return a - b;
+    }
+    function computed(a, b, fn) {
+      return fn(a, b);
+    }
+    let result = computed(1, 2, add)
+    console.log(result) // 3
+
+    // 构造函数
+    function Compute(a, b) {
+      this.a = a;
+      this.b = b;
+      this.add = function() {
+        return this.a + this.b;
+      }
+      this.minus = function() {
+        return this.a - this.b;
+      }
+    }
+    const oC = new Compute(10, 1)
+    let r = oC.add();
+    console.log(r) // 11
+
+    const t1 = (function() {
+      function Compute(a, b) {
+        this.a = a;
+        this.b = b;
+        this.add = function() {
+          return this.a + this.b;
+        }
+        this.minus = function() {
+          return this.a - this.b;
+        }
+      }
+      return new Compute(9,3)
+    })()
+
+    console.log(t1.add()) // 12
+  </script>
+</body>
+</html>
