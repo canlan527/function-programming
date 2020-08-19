@@ -95,14 +95,14 @@
 举个栗子：
 ```html
 
-  <h1 class="J_text">jxz eighteen cm penis</h1>
+  <h1 class="J_text">this some words here</h1>
   <button class="J_btn">click to change</button>
 
   <script>
     function Test() {
       this.oText = document.getElementsByClassName('J_text')[0];
       this.oBtn = document.getElementsByClassName('J_btn')[0];
-      this.content = 'jxz twenty cm cock'
+      this.content = 'another words to change'
     }
     Test.prototype = {
       init: function() {
