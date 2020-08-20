@@ -6,6 +6,8 @@
   <title>Document</title>
 </head>
 <body>
+  <input type="text" id="content">
+  <button id="btn">click to add value</button>
   <script>
 
     // 不是纯函数
@@ -17,11 +19,31 @@
     test()
     */
 
-    function test(a) {
-      console.log(a)
-    }
-    test(1)
+    // function test(a) {
+    //   console.log(a)
+    // }
+    // test(1)
 
+      // 不是纯函数
+      /*
+      var content = document.getElementById('content'),
+        btn = document.getElementById('btn')
+
+      btn.onclick = function() {
+        content.value = 'this is new value'
+      }
+      
+      // 不是纯函数
+
+      var a = 1;
+      function test() {
+        a = a -1
+      }
+      test()
+      console.log(a)
+      */
+      
+      // function
   </script>
 </body>
 </html>
