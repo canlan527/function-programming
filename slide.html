@@ -39,11 +39,11 @@
       height: 0px;
       overflow: hidden;
       width: 500px;
-      height: 200px;
+      /* height: 200px; */
   }
-  #spread img {
+  /* #spread img {
     width: 40%;
-  }
+  } */
 </style>
 <body>
   <div id="box">
@@ -51,7 +51,7 @@
         <h4>皮质腕表 水晶刻度大气表盘</h4>
         <p>瑞典 | Daniel Wellington | 价格:￥1233.24</p>
         <div id="spread">
-            <img src="./img/l8.jpg" alt="">
+            <img src="" alt="">
             <p>税费：进口税 预计146.76元</p>
             <p>物流：香港仓发货 至中国海关 至杭州市</p>
             <p>运费：0.00 24：00前付款,预计15日内送达</p>
@@ -68,6 +68,8 @@
   var iSpread = false
   /*高度*/
   var height = spread.scrollHeight
+  console.log(height)
+
   /*总时间*/
   var time = 420;
   /*间隔*/
@@ -76,13 +78,14 @@
   var speed = height/(time/interval)
   /*点击事件*/
   btn.onclick = function (e) {
+      console.log(height)
       btn.disabled = 'disabled'
       if(!iSpread){
           var speeds = 0
           var timer = setInterval(function () {
               speeds += speed
               spread.style.height = speeds + 'px'
-
+            console.log(spread.style.height)
               if(parseInt(spread.style.height) >=height){
                   clearTimeout(timer)
                   btn.disabled = ''
