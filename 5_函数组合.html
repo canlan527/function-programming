@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    function toUpperCase(str) {
+      return str.toUpperCase();
+    }
+    function exclaim(str) {
+      return str + '~!'
+    }
+
+    console.log(toUpperCase(exclaim('you wanna something big')))
+
+    // 这个函数接收两个函数参数
+    // 左倾：自右向左依次执行 
+    // 高阶函数：函数传入的另一个函数，这个函数先执行，返回给当前函数，当前函数再执行。
+    function compose(f, g) {
+      return function(x) {    // 包裹这层函数的原因是不想让f函数执行
+        return f(g(x))  // 左倾
+      }
+    }
+
+    var f = compose(exclaim, toUpperCase)
+    console.log(f('now you can change me to bigcase'))
+  </script>
+</body>
+</html>
