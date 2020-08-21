@@ -38,8 +38,8 @@
       }
     }
 
-    var f = compose(exclaim, toUpperCase)
-    console.log(f('now you can change me to bigcase'))
+    // var f = compose(exclaim, toUpperCase)
+    // console.log(f('now you can change me to bigcase'))
 
     // 当需要接收很多函数参数时，使用arguments
     /* function compose1() {
@@ -56,17 +56,51 @@
     } */
 
     // 换一总写法
-    function compose2 () {
+/*     function compose2 () {
       var args = Array.prototype.slice.call(arguments);
       return function(x) {
         return args.reduceRight(function(prev, cur, arr){
           return cur(prev)
         }, x)
       }
-    }
+    } */
 
-    var f2 = compose2(exclaim,join,reverse,split,toUpperCase);
-    console.log(f2('word here')) ;// EREH DROW~!
+    function compose2 () {
+      var args = Array.prototype.slice.call(arguments);
+      return function(x) {
+        return args.reduceRight(function(res, cb, arr){
+          return cb(res);
+        }, x)
+      }
+    }
+    // var f2 = compose2(exclaim,join,reverse,split,toUpperCase);
+    // console.log(f2('word here')) ;// EREH DROW~!
+
+    var f1 = compose2(join, split,toUpperCase)
+    console.log(f1('hello')) // HELLO
+    var f2 = compose2(compose2(join,split), toUpperCase)
+    console.log(f2('hello')) // HELLO
+    var f3 = compose2(join, compose2(split, toUpperCase))
+    console.log(f3('hello'))// HELLO
+
+
+
+
+
+
+
+
+
+/*     function compose3 () {
+      var args = Array.prototype.slice.call(arguments);
+      return function(x) {
+        return args.reduce(function(res, cb, arr){
+          return cb(res);
+        }, x)
+      }
+    } */
+/*     var f3 = compose3(toUpperCase, split, reverse, join, exclaim);
+    console.log(f3('word here')) */ ;// EREH DROW~!
     
   </script>
 </body>
