@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin:0;
+    padding:0;
+  }
+  .container {
+    width: 600px;
+    min-height: 100%;
+    height: 400px;
+    margin:100px;
+  }
+  .wrapper-line {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  .header {
+    position: relative;
+    width: 100%;
+    padding:20px;
+    box-sizing: border-box;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .btn {
+    position: absolute;
+    left:40px;
+    top:-15px;
+    min-width: 100px;
+    height: 30px;
+    background:#fff;
+    color: rgb(52, 73, 192);
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+    padding:0 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, .4);
+    cursor: pointer;
+  }
+  .btn:hover {
+    background:rgb(226, 226, 226);
+  }
+  .icon-btn {
+    position: absolute;
+    left: 14px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right:5px;
+  }
+  .icon-btn img {
+    width: 100%;
+    height: 100%;
+    margin-top:9px;
+  }
+  .btn-text {
+    display: inline-block;
+    min-width: 55px;
+    height: 100%;
+    margin-left: 28px;
+  }
+  .content {
+    width: 100%;
+    padding:10px;
+    overflow: hidden;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .content.active {
+    display: block;
+  }
+</style>
+<body>
+
+  <div class="container" id="container">
+    <div class="wrapper-line">
+      <div class="header" id="header">
+        <div class="btn" id="btn">
+          <div class="icon-btn"><img src="./img/down.png"  id="iconImg" alt=""></div>
+          <span class="btn-text" id="btn-text">点击标题</span>
+        </div>
+      </div>
+      <div class="content" id="content">
+        <!-- 这里放置内容 -->
+
+        自定义内容
+      </div>
+    </div>
+  </div>
+
+  <script src="./collapse.js"></script>
+
+  <script>
+    /* 
+    配置项option：
+    1. oContainer：传入父容器
+    2. oBtn：传入点击按钮的 DOM 元素  
+    3. oContent：传入折叠 DOM 元素 
+    4. oHeader：传入DOM元素header
+    5. oWidth：父容器的宽度  > 200
+    6. oHeight：父容器的高度  > 50
+    7. oBtnText：获取标签所在的div
+    8. title：传入按钮中的文字
+    9：icon： 按钮内的iconDOM
+    10. iconSrc: 按钮图标的图片地址
+  */
+    var collapse = new myPlugin.Collapse({
+      oContainer: document.getElementById('container'),
+      oWidth: 600,
+      oHeight:300,
+      oHeader: document.getElementById('header'),
+      oBtn: document.getElementById('btn'),
+      oContent: document.getElementById('content'),
+      icon: document.getElementById('iconImg'),
+      iconSrc: ['./img/right.png', './img/down.png'],
+      oBtnText: document.getElementById('btn-text'),
+      title: '自定义标签'
+    });
+
+  </script>
+</body>
+</html>
