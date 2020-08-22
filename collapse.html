@@ -34,16 +34,17 @@
     top:-15px;
     min-width: 100px;
     height: 30px;
-    background:rgb(158, 255, 158);
-    color: #fff;
+    background:rgb(248, 248, 248);
+    color: rgb(76, 93, 247);
     border-radius: 10px;
     border:none;
     outline: none;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+    letter-spacing: 2px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
   .btn:hover {
-    background:rgb(181, 253, 181);
+    background:rgb(228, 228, 228);
   }
   .content {
     width: 100%;
@@ -62,7 +63,7 @@
   <div class="container">
     <div class="wrapper-line">
       <div class="header">
-        <button class="btn" id="btn">点击</button>
+        <button class="btn" id="btn">点击收起</button>
       </div>
       <div class="content" id="content"></div>
     </div>
@@ -78,9 +79,11 @@
    function spread() {
     if(isSpread) {
       oContent.style.display = 'none';
+      this.innerText = '点击展开'
       isSpread = false;
     }else {
       oContent.style.display = 'block'
+      this.innerText = '点击收起'
       isSpread = true;
     }
    }
