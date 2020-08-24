@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // 
+    // function add(a, b) {
+    //   return a + b;
+    // }
+    // add(1, 2);
+
+    // // 偏函数的理解
+    // var add1 = partial(add, 1)
+    // add1(2);
+
+    // // 与柯里化的区别
+    // // curry
+    // var newFn = curry(add, 1)
+    // newFn(2,3,4)
+    // newFn(2)(3)(4)
+    // newFn(2,3)(4)
+    // newFn(2)(3,4)
+
+    // // partial
+    // var add1 = partial(add, 1)
+    // add1(2,3,4);
+    // var add1 = partial(add, 1,2)
+    // add1(3,4);
+
+
+
+    // eg
+    function add(a, b, c, d) {
+      return a + b + c + d;
+    }
+
+    // var newArr = add.bind(null, 1, 2)
+    // console.log(newArr(3,4))
+
+    // 封装
+    Function.prototype.partial = function() {
+      var _self = this;
+      var _args = [].slice.call(arguments);
+      return function() {
+        var newArgs = _args.concat([].slice.call(arguments));
+        return _self.apply(this, newArgs);
+      }
+    }
+
+    var newArr = add.partial(1,2)
+    console.log(newArr(3,4))
+
+  </script>
+</body>
+</html>
