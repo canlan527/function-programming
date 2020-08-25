@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">click me</button>
+  <script>
+
+ /*    var timeStamp = null;
+
+    function getTimeStamp() {
+      if(timeStamp) {
+        return timeStamp;
+      }
+      timeStamp = new Date().getTime();
+      return timeStamp;
+    }
+ */
+
+    // 修改
+/* 
+    var getTimeStamp = function() {
+      var timeStamp = new Date().getTime()
+      getTimeStamp = function () {
+        return timeStamp;
+      }
+      return timeStamp;
+    }
+ 
+    console.log(getTimeStamp())
+    console.log(getTimeStamp())
+    console.log(getTimeStamp())
+    console.log(getTimeStamp())
+
+ */
+
+
+    // 点击事件
+    /* var addEvent = (function(){
+      if(window.addEventListener) {
+        return function (el, type, fn, capture) {
+          return el.addEventListener(type, fn, capture);
+        }
+      } else if(window.attachEvent) {
+        return function(el, type, fn) {
+          return el.attachEvent('on' + type, function() {
+            fn.call(el)
+          })
+        }
+      } else {
+        return function(el, fn, type) {
+          return el['on' + type] = fn;
+        }
+      }
+    })()
+ */
+ // 改造
+    /* function addEvent(el, type, fn, capture) {
+      if(el.addEventListener) {
+        addEvent = function (el, type, fn, capture) {
+          el.addEventListener(type, fn, capture);
+        }
+      }else if (el.attachEvent) {
+        addEvent = function (el, type, fn) {
+          el.attachEvent('on' + type, function() {
+            fn.call(el);
+          })
+        }
+      } else {
+        addEvent = function (el, type, fn) {
+          el['on' + type] = fn;
+        }
+      }
+      console.log(addEvent)
+      addEvent(el, type, fn, capture)
+    }
+
+    var oBtn = document.getElementById('btn')
+    addEvent(oBtn, 'click', btnClick)
+    function btnClick () {
+      console.log(123)
+    } */
+      
+/* 
+    function test(num) {
+      switch(num) {
+        case 1:
+          test = function() {
+            console.log('I like u')
+          }
+          break;
+        case 2:
+          test = function() {
+            console.log('I love U')
+          }
+          break;
+        case 3:
+          test = function() {
+            console.log('now marry me')
+          }
+          break;
+      }
+      return test();
+    }
+    test(1); // I like u
+
+    test(3); // I like u */
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
