@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 300px;
+    height: 300px;
+    background:red;
+  }
+</style>
+<body>
+  <div></div>
+
+  <script>
+/*     var oDiv = document.getElementsByTagName('div')[0];
+    var timer = null;
+
+    oDiv.onmouseover = function () {
+      clearTimeout(timer)
+      timer = setTimeout(function() {
+        console.log(123)
+      }, 1000)
+    }
+
+ */
+// 缺点：污染全局 + 初次触发事件时，会延迟执行
+
+// ajax 请求数据 提交表单 输入验证
+
+function test() {
+  console.log(1);
+}
+oBox.onmouseover = debounce(test())
+ 
+
+
+
+// 防抖函数
+function debounce(fn, time,triggerNow) {
+  var timer = null;
+  var res;
+  var debounce = function() {
+    var _self = this;
+    var _args = arguments;
+    if(timer) {
+      clearTimeout(timer);
+    }
+    // 如果是第一次进来的话，timer是null， ！null就是true，exec第一次就是true，直接执行回调函数
+   if(triggerNow) {
+     var exec = !timer;
+     // 延迟
+     timer= setTimeout(function() {
+       timer = null;
+     },time)
+
+     if(exec) {
+       fn.apply(_self, _args)
+     }
+   } else {
+     timer = setTimeout(function() {
+       fn.apply(_self, _args);
+     }, time)
+   }
+   
+   debounce.remove = function() {
+      clearTimeout(timer),
+      timer = null;
+    }
+  }
+}
+
+
+
+  </script>
+</body>
+</html>
